@@ -152,7 +152,7 @@ function prepare_package() {
 
   major_version="${VER1}"
   minor_version="${VER2}${VER3}"
-  cp "${mcollective_root}/ext/osx/${PROTO_PLIST}" "${pkgtemp}"
+  cp "${mcollective_root}/conf/osx/${PROTO_PLIST}" "${pkgtemp}"
   sed -i '' "s/{SHORTVERSION}/${mcollective_version}/g" "${pkgtemp}/${PROTO_PLIST}"
   sed -i '' "s/{MAJORVERSION}/${major_version}/g" "${pkgtemp}/${PROTO_PLIST}"
   sed -i '' "s/{MINORVERSION}/${minor_version}/g" "${pkgtemp}/${PROTO_PLIST}"
@@ -160,7 +160,7 @@ function prepare_package() {
   # We need to create a preflight script to remove traces of previous
   # mcollective installs due to limitations in Apple's pkg format.
   mkdir "${pkgtemp}/scripts"
-  cp "${mcollective_root}/ext/osx/${PREFLIGHT}" "${pkgtemp}/scripts"
+  cp "${mcollective_root}/conf/osx/${PREFLIGHT}" "${pkgtemp}/scripts"
 
   # substitute in the sitelibdir specified above on the assumption that this
   # is where any previous mcollective install exists that should be cleaned out.
