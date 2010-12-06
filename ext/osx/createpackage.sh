@@ -4,9 +4,7 @@
 #
 # Author: Nigel Kersten (nigelk@google.com)
 #
-# Last Updated: 2008-07-31
-#
-# Copyright 2008 Google Inc.
+# Last Updated: 2010-12-06
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -58,7 +56,6 @@ function install_mcollective() {
   mkdir -p ${pkgroot}${MCLIBDIR}  
   mkdir -p ${pkgroot}${MCDOCDIR}
   mkdir -p ${pkgroot}${LAUNCHDIR}
-  mkdir -p ${pkgroot}${BINDIR}
   mkdir -p ${pkgroot}${SBINDIR}
   mkdir -p ${pkgroot}${SITELIBDIR}
   mkdir -p ${pkgroot}${ETCDIR}
@@ -117,10 +114,6 @@ function install_mcollective() {
 EOF
 
   chmod 644 ${pkgroot}/${LAUNCHDIR}/org.marionette-collective.mcollective.plist
-
-  # echo "Installing MCollective to ${pkgroot}"
-  # "${installer}" --destdir="${pkgroot}" --bindir="${BINDIR}" --sbindir="${SBINDIR}" --sitelibdir="${SITELIBDIR}"
-  # chown -R root:admin "${pkgroot}"
 }
 
 function install_docs() {
